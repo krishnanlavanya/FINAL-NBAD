@@ -1,13 +1,5 @@
 This is my final project for the Subject Network Based Application Development based on Angular, HTML and CSS . I have used Mongo DB as database.
 
-<<<<<<< HEAD
-=======
-How to run:
-
-cd final_app >  npm start
-cd backend > node server.js
-
->>>>>>> origin/main
 
 Working:
 
