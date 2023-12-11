@@ -15,4 +15,6 @@ Then we have budget page, Here we can Add Budget and Select a Category , we have
 
 After that we will have an expenses page, here from the budget’s categories that we have added, we can take an expense amount and comment on what it is . 
 
-As we keep on changing and updating the budget and expense , the first two charts keep on changing, for the third chart to change you have to login the next day as it calculates for a day! You Also have an option to logout.
+As we keep on changing and updating the budget and expense , the first two charts keep on changing, for the third chart to change you have to login the next day as it calculates for a day! 
+
+You Also have an option to logout.
