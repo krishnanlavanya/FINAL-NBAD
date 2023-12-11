@@ -342,7 +342,7 @@ router.post('/login', async(req,res)=>{
         });
     }
 
-    const token=wt.sign({ id: user._id, name: user.name}, secretKey ,{expiresIn: '180s'});
+    const token=jwt.sign({ id: user._id, name: user.name}, secretKey ,{expiresIn: '180s'});
 console.log(user.name)
     res.send({
         message:"success",
