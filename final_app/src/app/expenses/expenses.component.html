@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h2>Expense List</h2>
+
+  <button class="p-button-raised p-button-rounded" pButton type="button" (click)="openExpenseDialog()">Add Expense</button>
+
+  <p></p>
+
+
+</div>
+
+<p-table [value]="expenses" dataKey="index" editMode="row">
+    <ng-template pTemplate="header">
+        <tr>
+
+            <th>Expense Title</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Comment</th>
+            <th style="width:8em"></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-editing="editing" let-ri="rowIndex">
+        <tr [pEditableRow]="rowData">
+
+            <td>
+                {{rowData.category}}
+            </td>
+            <td>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="rowData.amount" >
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{rowData.amount}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td>
+              <p-cellEditor>
+                  <ng-template pTemplate="input">
+                      <input pInputText type="text" [(ngModel)]="rowData.date" >
+                  </ng-template>
+                  <ng-template pTemplate="output">
+                      {{rowData.date}}
+                  </ng-template>
+              </p-cellEditor>
+          </td>
+          <td>
+            <p-cellEditor>
+                <ng-template pTemplate="input">
+                    <input pInputText type="text" [(ngModel)]="rowData.comment" >
+                </ng-template>
+                <ng-template pTemplate="output">
+                    {{rowData.comment}}
+                </ng-template>
+            </p-cellEditor>
+        </td>
+
+
+            <td style="text-align:center">
+              <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-delete" class="ui-button-danger" (click)="onRowDelete(rowData,ri)"></button>
+                <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil" class="ui-button-info" (click)="onRowEditInit(rowData,ri)"></button>
+                <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check" class="ui-button-success" style="margin-right: .5em" (click)="onRowEditSave(rowData,ri)"></button>
+                <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times" class="ui-button-danger" (click)="onRowEditCancel(rowData, ri)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog header="Add Expenses" [(visible)]="display" [style]="{'margin-left':'80px', 'margin-right':'80px'}">
+  <ng-template pTemplate="header">
+    Add New Expenses
+  </ng-template>
+  <p-dialog-content>
+    <input pInputText placeholder="Amount" [(ngModel)]="newExpense.amount" />
+
+    <input pInputText placeholder="Comment" [(ngModel)]="newExpense.comment" />
+    <p-selectButton [options]="categories" [(ngModel)]="newExpense.category" >
+
+  </p-selectButton>
+
+
+  </p-dialog-content>
+  <ng-template pTemplate="footer">
+    <button class="p-button-raised p-button-rounded" (click)="addExpense(newExpense)">Add Expense</button>
+  </ng-template>
+</p-dialog>
