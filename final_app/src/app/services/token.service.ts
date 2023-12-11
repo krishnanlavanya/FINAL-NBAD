@@ -1,25 +1,51 @@
+// token.service.ts
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { DialogService } from 'primeng/dynamicdialog';
+import { TokenExpiredPopupComponentComponent } from '../token-expired-popup-component/token-expired-popup-component.component';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TokenService {
-  constructor() { }
-  storeAccessToken = (token:string) => {
-    localStorage.setItem('accessToken',token)
+  constructor(private dialogService: DialogService) {}
+
+  showTokenExpiredPopup(): void {
+    const ref = this.dialogService.open(TokenExpiredPopupComponentComponent, {
+      header: 'Token Expired',
+      width: '300px',
+      closable: false,
+      modal: true,
+    });
+
+    ref.onClose.subscribe(() => {
+      // Handle any logic you need after the dialog is closed
+      // For example, navigate to the login page
+    });
   }
-  storeRefrshToken = (token:string) => {
-    localStorage.setItem('refreshToken',token)
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
-  getAccessToken = () => {
-    return localStorage.getItem('accessToken')
+
+  setToken(token: string): void {
+    localStorage.setItem('token', token);
   }
-  getRefreshToken = () => {
-    return localStorage.getItem('refreshToken')
+
+  removeToken(): void {
+    localStorage.removeItem('token');
   }
-  deleteAccessToken = () => {
-    localStorage.removeItem('accessToken')
+
+  isTokenExpired(token: string): boolean {
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+
+    if (decodedToken && decodedToken.exp) {
+      const currentTimestamp = new Date().getTime() / 1000;
+      return decodedToken.exp < currentTimestamp;
+    }
+
+    return true;
   }
-  deleteRefreshToken = () => {
-    localStorage.removeItem('refreshToken')
-  }
+
+
 }

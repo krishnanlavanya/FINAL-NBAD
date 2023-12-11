@@ -47,10 +47,9 @@ export class LoginComponent implements OnInit{
       .subscribe(
         (user:any)=>{
 
-          alert("Success")
           console.log(user);
-          this.tokenService.storeAccessToken(user.accessToken)
-      this.tokenService.storeRefrshToken(user.refreshToken)
+          localStorage.setItem("jwt",user.token);
+          this.tokenService.setToken(user.token);
           localStorage.setItem("user",user.user);
           this.authService.isLoggedin=true;
           this.router.navigate(['/'])

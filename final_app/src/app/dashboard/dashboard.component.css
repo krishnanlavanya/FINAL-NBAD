@@ -44,3 +44,6 @@ body {
   padding: 20px 0;
   margin-top: auto;
 }
+.ui-buttonset:not(.ui-splitbutton) .ui-button {
+ font-size: 13px;
+}

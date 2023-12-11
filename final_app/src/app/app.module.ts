@@ -25,6 +25,9 @@ import { ButtonModule } from 'primeng/button';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import {ChartModule} from 'primeng/chart';
 import {ToastModule} from 'primeng/toast';
+import { TokenService } from './services/token.service';
+import { DynamicDialogModule, DialogService } from 'primeng/dynamicdialog';
+import { TokenExpiredPopupComponentComponent } from './token-expired-popup-component/token-expired-popup-component.component';
 
 @NgModule({
   declarations: [
@@ -53,9 +56,11 @@ import {ToastModule} from 'primeng/toast';
     ChartModule,
     ToastModule,
     ChartModule,
+    DynamicDialogModule
 
   ],
-  providers: [AuthService,AuthGuardService,
+  providers: [AuthService,AuthGuardService,    TokenService,DialogService,
+
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
         JwtHelperService
     ,{provide:HTTP_INTERCEPTORS,
@@ -63,6 +68,6 @@ import {ToastModule} from 'primeng/toast';
 multi:true,},],
   bootstrap: [AppComponent],
   exports:[AppRoutingModule],
-  schemas: [NO_ERRORS_SCHEMA]
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule { }

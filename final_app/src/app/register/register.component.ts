@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
+      name: ["", [ Validators.required]],
       email: ["", [Validators.email, Validators.required]],
       password: [
         "",
@@ -42,7 +43,7 @@ export class RegisterComponent implements OnInit {
 
   onRegister(): void {
     let user = this.registerForm.getRawValue();
-    user.name="Yash";
+
     console.log(user);
 
     if (this.registerForm.valid) {
