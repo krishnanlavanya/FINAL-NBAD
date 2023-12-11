@@ -183,18 +183,6 @@ router.post('/expenses', jwtCheck, async (req, res) => {
   });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   ///total budget and total expenses
 
   // Get total budget for a user
@@ -342,7 +330,8 @@ router.post('/login', async(req,res)=>{
         });
     }
 
-    const token=jwt.sign({ id: user._id, name: user.name}, secretKey ,{expiresIn: '180s'});
+    const token=jwt.sign({_id:user._id},"secret");
+    // const token=jwt.sign({ id: user._id, name: user.name}, secretKey ,{expiresIn: '180s'});
 console.log(user.name)
     res.send({
         message:"success",
