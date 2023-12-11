@@ -1,0 +1,56 @@
+<style>
+  .navbar-default {
+    background-color: #428bca; /* Navbar background color */
+    border-color: #357ebd; /* Navbar border color */
+  }
+
+  .navbar-title,
+  .navbar-nav > li > a {
+    color: #ffffff; /* Text color for title and navbar links */
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 10px; /* Add margin between the two title spans */
+  }
+
+  .navbar-title.text-primary {
+    color: #5bc0de; /* Color for the left side of the title */
+  }
+
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li > a:focus {
+    background-color: #357ebd; /* Background color on hover/focus */
+    color: #ffffff; /* Text color on hover/focus */
+  }
+
+  .navbar-toggle {
+    border-color: #ffffff; /* Color of the navbar toggle button */
+  }
+
+  .navbar-toggle .icon-bar {
+    background-color: #ffffff; /* Color of the navbar toggle button icon bars */
+  }
+</style>
+
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid d-flex align-items-center">
+    <div class="navbar-header col-md-6">
+      <a class="navbar-brand" href="#"></a>
+      <span class="navbar-title">Lavanya's Personal Budget App</span>
+      <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+    </div>
+    <div class="navbar-collapse collapse col-md-6 text-right">
+      <ul class="nav navbar-nav">
+        <li><a [routerLink]="['/']">Home</a></li>
+        <li><a [routerLink]="['/dashboard']">Dashboard</a></li>
+        <li><a [routerLink]="['/budget']">Budget</a></li>
+        <li><a [routerLink]="['/expenses']">Expenses</a></li>
+        <li><a (click)="logout()">Logout</a></li>
+
+      </ul>
+    </div>
+  </div>
+</div>
