@@ -1,27 +1,18 @@
-# FinalApp
+This is my final project for the Subject Network Based Application Development based on Angular, HTML and CSS . I have used Mongo DB as database.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
 
-## Development server
+Working:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Since you will be new to this website, register to login to the website:
 
-## Code scaffolding
+When you login the website, you will visit the home page where you will be welcomed. There are 3 more pages in the navigation bar, that one can switch into. The first one is Dashboard where 3 charts are shown: 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. The first chart is the budget pie chart, that shows the budget of every category once you add them.
+2. The second chart is budget chart vs expense chart, it is a bar comparison chart.
+3. The third one is monthly expense chart which tells you the total expense you have spent on that month.( It changes on mothly basis and tracks the month on which month and date you add the expense)
 
-## Build
+Then we have budget page, Here we can Add Budget and Select a Category , we have to give an amount for a category let say the budget of that category has been decided. You can keep on adding budgets and a table is formed. You can also edit as well as delete a budget on your wish.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+After that we will have an expenses page, here from the budget’s categories that we have added, we can take an expense amount and comment on what it is . 
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+As we keep on changing and updating the budget and expense , the first two charts keep on changing, for the third chart to change you have to login the next day as it calculates for a day! You Also have an option to logout.
