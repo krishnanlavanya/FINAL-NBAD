@@ -28,6 +28,7 @@ import {ToastModule} from 'primeng/toast';
 import { TokenService } from './services/token.service';
 import { DynamicDialogModule, DialogService } from 'primeng/dynamicdialog';
 import { TokenExpiredPopupComponentComponent } from './token-expired-popup-component/token-expired-popup-component.component';
+import { UtestingComponent } from './utesting/utesting.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { TokenExpiredPopupComponentComponent } from './token-expired-popup-compo
     HomeComponent,
     DashboardComponent,
     ExpensesComponent,
-    BudgetComponent
+    BudgetComponent,
+    UtestingComponent
   ],
   imports: [
     BrowserModule,
