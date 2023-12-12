@@ -10,7 +10,7 @@ const port=3000
 const app=express()
 
 app.use(cors({
-    origin:['http://1159.65.36.13:3000'],
+    origin:['http://localhost:4200'],
     credentials:true
 }))
 
@@ -30,24 +30,13 @@ app.use(function(req, res, next) {
       message: err.message
     })
   });
-
-const username = 'doadmin';
-const password = process.env.MONGODB_PASSWORD; // Set this environment variable
-const host = 'db-mongodb-nyc3-25322-4d7cd531.mongo.ondigitalocean.com';
-const port = 27017;
-const database = 'admin';
-
-mongoose.connect(
-  `mongodb+srv://${username}:${password}@${host}:${port}/${database}`,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-)
+mongoose.connect("mongodb://127.0.0.1:27017/personal-budget-db",{
+    useNewUrlParser:true,
+})
 .then(()=>{
-  console.log("connected to database")
+    console.log("connected to database")
 
-  app.listen(port,()=>{
-      console.log(`API listening to http://1159.65.36.13:3000')`)
-  })
+    app.listen(port,()=>{
+        console.log(`API listening to http://localhost:${port}`)
+    })
 })
