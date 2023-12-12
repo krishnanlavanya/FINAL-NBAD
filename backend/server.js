@@ -10,7 +10,7 @@ const port=3000
 const app=express()
 
 app.use(cors({
-    origin:['http://localhost:4200'],
+    origin:['http://1159.65.36.13:3000'],
     credentials:true
 }))
 
@@ -37,6 +37,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/personal-budget-db",{
     console.log("connected to database")
 
     app.listen(port,()=>{
-        console.log(`API listening to http://localhost:${port}`)
+        console.log(`API listening to http://1159.65.36.13:3000')
+        :${port}`)
     })
 })
